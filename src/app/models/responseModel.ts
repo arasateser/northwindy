@@ -1,7 +1,7 @@
 import { Product } from "./product";
 import { ProductResponseModel } from "./productResponseModel";
 
-export interface ResponseModel extends ProductResponseModel {
+export interface ResponseModel {
     success:boolean,
     message:string
 }
