@@ -1,4 +1,13 @@
 <table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>categoryId</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
     <tr *ngFor = "let p of products">
         <td>{{p.productName}}</td>
         <td>{{p.productId}}</td>
