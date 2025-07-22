@@ -6,7 +6,7 @@
   <label for="filterText" class="form-label">Type A Product</label>
   <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="type a product">
 </div>
-<div *ngIf="filterText.length>2" class="alert alert-warning">
+<div *ngIf="filterText.length > 2" class="alert alert-warning">
     {{filterText}} aradiniz.
 </div>
 
@@ -21,7 +21,7 @@
             <th>Stock</th>
         </tr>
     </thead>
-    <tr *ngFor = "let p of products">
+    <tr *ngFor = "let p of products |filterPipe:filterText">
         <td>{{p.productId}}</td>
         <td>{{p.productName |uppercase}}</td>
         <td>{{p.categoryId}}</td>
