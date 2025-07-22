@@ -21,6 +21,7 @@
             <th>Stock</th>
         </tr>
     </thead>
+    <tbody>
     <tr *ngFor = "let p of products |filterPipe:filterText">
         <td>{{p.productId}}</td>
         <td>{{p.productName |uppercase}}</td>
@@ -28,5 +29,8 @@
         <td>{{p.unitPrice |currency }}</td>
         <td>{{p.unitPrice |vatAdded:10 |currency}}</td>
         <td>{{p.unitsInStock}}</td>
+        <td> <button (click)="addToCart(p)" type="button" class="btn btn-primary">Add Cart</button>
+            </td>
     </tr>
+    </tbody>
 </table>
