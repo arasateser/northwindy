@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CartItem } from '../../models/cartItem';
 import { CartService } from '../../services/cart.service';
+import { Product } from '../../models/product';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart-summary',
@@ -8,9 +10,10 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './cart-summary.component.css'
 })
 export class CartSummaryComponent {
-cartItems:CartItem[]=[];
+cartItems:CartItem[];
 
-constructor(private cartService:CartService){}
+constructor(private cartService:CartService,
+            private toastrService:ToastrService){}
 
 ngOnInit(): void{
   this.getCart();
@@ -18,5 +21,10 @@ ngOnInit(): void{
 
 getCart() {
   this.cartItems = this.cartService.list();
+}
+
+removeFromCart(product:Product){
+  this.cartService.removeFromCart(product);
+  this.toastrService.error("Deleted", product.productName)
 }
 }
